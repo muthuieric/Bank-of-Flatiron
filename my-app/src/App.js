@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import TransactionList from './components/TransactionList';
 import TransactionForm from './components/TransactionForm';
 
+
 function App() {
   const [transactions, setTransactions] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
@@ -16,11 +17,11 @@ function App() {
   }, []);
 
   const handleFormSubmit = (formData) => {
-    // For the demo purpose, we are only updating the UI (no backend persistence).
+
     setTransactions((prevTransactions) => [
       ...prevTransactions,
       {
-        id: Date.now(), // This will create a unique ID for the new transaction (temporary)
+        id: Date.now(), // This will create a unique ID for the new transaction
         ...formData,
       },
     ]);
