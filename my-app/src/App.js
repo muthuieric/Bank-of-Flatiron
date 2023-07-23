@@ -9,13 +9,14 @@ function App() {
   useEffect(() => {
     fetch('http://localhost:3000/transactions')
       .then((response) => response.json())
-      .then((data) => setTransactions(data))
+      .then((data) => setTransactions(data.transactions))
       .catch((error) => {
         console.error('Error fetching data:', error);
       });
   }, []);
 
   const handleFormSubmit = (formData) => {
+    // For the demo purpose, we are only updating the UI (no backend persistence).
     setTransactions((prevTransactions) => [
       ...prevTransactions,
       {
