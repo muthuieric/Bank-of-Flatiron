@@ -1,5 +1,7 @@
 # IP01 Code Challenge: Bank of Flatiron
-[Live-Site]https://bank-of-flatiron-002.netlify.app/
+Live-Site: https://bank-of-flatiron-002.netlify.app/
+Server: http://localhost:8000/transactions
+
 # Learning Goals
 Implement a mini web app to practice on components, props, state, events and data fetching in react
 
