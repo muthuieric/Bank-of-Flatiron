@@ -2,34 +2,39 @@ import React, { useState, useEffect } from 'react';
 import TransactionList from './components/TransactionList';
 import TransactionForm from './components/TransactionForm';
 
-
 function App() {
-  const [transactions, setTransactions] = useState([]);
+  const [transactions, setTransactions] = useState(null);
   const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
-    fetch('http://localhost:3000/transactions')
+    fetch('http://localhost:8000/transactions')
       .then((response) => response.json())
-      .then((data) => setTransactions(data.transactions))
+      .then((data) => setTransactions(data))
       .catch((error) => {
         console.error('Error fetching data:', error);
       });
   }, []);
 
   const handleFormSubmit = (formData) => {
-
     setTransactions((prevTransactions) => [
       ...prevTransactions,
       {
-        id: Date.now(), // This will create a unique ID for the new transaction
+        id: Date.now(),
         ...formData,
       },
     ]);
   };
 
-  const filteredTransactions = transactions.filter((transaction) =>
-    transaction.description.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  const handleSearch = (e) => {
+    setSearchTerm(e.target.value);
+  };
+
+  // Filter transactions based on the search term
+  const filteredTransactions = transactions
+    ? transactions.filter((transaction) =>
+        transaction.description.toLowerCase().includes(searchTerm.toLowerCase())
+      )
+    : [];
 
   return (
     <div>
@@ -40,11 +45,11 @@ function App() {
         <input
           type="text"
           value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
+          onChange={handleSearch}
           placeholder="Search by description..."
         />
       </div>
-      <TransactionList transactions={filteredTransactions} />
+      {transactions && <TransactionList transactions={filteredTransactions} />}
     </div>
   );
 }
