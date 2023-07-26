@@ -1,5 +1,5 @@
 # IP01 Code Challenge: Bank of Flatiron
-
+[Live-Site]https://bank-of-flatiron-002.netlify.app/
 # Learning Goals
 Implement a mini web app to practice on components, props, state, events and data fetching in react
 
@@ -16,7 +16,7 @@ Fetch data from a local server running JSON DB server.
 Project Setup & Pre-requisite Data
 In your project directory, create a db.json file and use this dataLinks to an external site. for your server DB.
 Run this command to get the backend started: json-server --watch db.json
-Test your server by visiting this route in the browser: http://localhost:8001/transactions
+Test your server by visiting this route in the browser: http://localhost:8000/transactions
  
 
 

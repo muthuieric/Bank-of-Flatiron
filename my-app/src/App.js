@@ -38,7 +38,7 @@ function App() {
 
   return (
     <div>
-      <h1>Transactions</h1>
+      <h1>Bank of Flatiron</h1>
       <TransactionForm onSubmit={handleFormSubmit} />
       <div>
         <label>Search:</label>
