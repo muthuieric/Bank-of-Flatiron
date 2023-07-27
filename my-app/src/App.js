@@ -7,7 +7,7 @@ function App() {
   const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
-    fetch('http://localhost:8000/transactions')
+    fetch('https://bank-flatiron-data.onrender.com')
       .then((response) => response.json())
       .then((data) => setTransactions(data))
       .catch((error) => {
